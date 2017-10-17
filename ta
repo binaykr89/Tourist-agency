@@ -1,0 +1,364 @@
+#include<iostream>          
+#include<fstream>
+#include<string.h>
+using namespace std;
+int noc=0;
+class tourist
+{
+    int client_no;
+    char name[30];
+    char address[50];
+    char phone[10];
+    int cost;
+    char place[50];
+public:
+        tourist(){}//default constructor
+        void registration();
+        void display();
+        void search();
+        int check(int);
+        void modify(int);
+        void delete_rec(int);
+};
+void tourist::registration()
+{
+    int cn;
+    ifstream fin("cno.txt",ios::in);
+    fin>>cn;
+    noc=cn;
+    fin.close();
+    noc++;
+    char ch;
+    int i=0;
+    int r,flag;
+    ofstream fout("file.txt",ios::out|ios::app|ios::binary);
+    cout<<"\n Enter Coustomer Details: \n";
+    cout<<"\n------------------------------------------------";
+    cout<<"\n Client No: "<<noc;  //<<"\n";
+    r=noc;
+    client_no=r;
+    cout<<"\n\n Name : ";
+    getchar();
+    cin>>name;
+    cout<<" Address : ";       //jhjhjh
+    cin>>address;
+    cout<<" phone number : ";
+    cin>>phone;
+    for(i=0;i<10;i++)
+    {
+        if(!(phone[i]>='0'&&phone[i]<='9'))
+            {
+                cout<<"\nEnter a Valid Phone Number : ";
+                noc--;
+                return;
+            }
+    }
+    cout<<"\n Tourist places are:- ";
+    cout<<"\n-------------------------------------";
+    int choice,c;
+    cout<<"\n\n 1.Goa\n 2.Ooty \n 3.Mumbai\n 4.Delhi\n 5.HYderabad\n 6.Pune\n";
+    cout<<"\n Select tourist place you wish to visit : ";
+    cin>> choice;
+    cout<<" Also Enter the Corresponding Place Name : ";
+    cin>>place;
+    switch(choice)
+    {
+        case 1:cout<<"\n 1.price by bus is 500\n";
+        cout<<" 2.price by train is 1500\n";
+        cout<<" 3.price by flight is 2000\n";
+        cout<<"\n Enter the choice: ";
+        cin>>c;
+        if(c==1)
+        {
+            cout<<"\n registration done through bus\n";
+            cout<<" registration is done.....!!!!\n";
+            cout<<" thank you for registering...!!!\n";
+        }
+        else if(c==2)
+        {
+            cout<<"\nregistration done through train\n";
+            cout<<"registration is done.....!!!";
+            cout<<"thank you for registering...!!!";
+        }
+        else if(c==3)
+        {
+            cout<<"\nregistration is done through flight\n";
+            cout<<"registration is done...!!!";
+            cout<<"thank you for registering...!!!";
+        }
+        else
+                cout<<"\nInvalid Input\n";
+        break;
+        case 2:cout<<"\n 1.price by bus is 300\n";
+        cout<<" 2.price by train is 850\n";
+        cout<<" 3.sorry..!!No Flight facility!!!\n";
+        cout<<"\n Enter the choice : ";
+        cin>>c;
+        if(c==1)
+        {
+            cout<<"\nregistration done through bus\n";
+            cout<<"registration is done.....!!!!\n";
+            cout<<"thank you for registering...!!!\n";
+        }
+        else if(c==2)
+        {
+            cout<<"\nregistration done through train\n";
+            cout<<"registration is done.....!!!";
+            cout<<"thank you for registering...!!!";
+        }
+        else if(c==3)
+        {
+            cout<<"\nregistration is not possible!!sorry..!\n";
+        }
+        else
+                cout<<"\nInvalid Input\n";
+        break;
+        case 3:cout<<"\n 1.price by bus is 1500\n";
+        cout<<" 2.price by train is 2000\n";
+        cout<<" 3.price by flight is 5000\n";
+        cout<<"\n Enter the choice : ";
+        cin>>c;
+        if(c==1)
+        {
+            cout<<"\nregistration done through bus\n";
+            cout<<"registration is done.....!!!!\n";
+            cout<<"thank you for registering...!!!\n";
+        }
+        else if(c==2)
+        {
+            cout<<"\nregistration done through train\n";
+            cout<<"registration is done.....!!!\n";
+            cout<<"thank you for registering...!!!\n";
+        }
+        else if(c==3)
+        {
+            cout<<"\nregistration is done through flight\n";
+            cout<<"registration is done.....!!!\n";
+            cout<<"thank you for registering...!!!\n";
+        }
+        else
+                cout<<"\nInvalid Input\n";
+        break;
+        case 4:cout<<"\n 1.Sorry...!!!no bus facility...!!!\n";
+        cout<<" 2.price by train is 3000\n";
+        cout<<" 3.price by flight is 9000\n";
+        cout<<"\n Enter the choice : ";
+        cin>>c;
+        if(c==1)
+        {
+            cout<<"\nregistration is not possible!!sorry..!!\n";
+        }
+        else if(c==2)
+        {
+            cout<<"\nregistration done through train\n";
+            cout<<"registration is done.....!!!\n";
+            cout<<"thank you for registering...!!!\n";
+        }
+        else if(c==3)
+        {
+            cout<<"\nregistration is done through flight\n";
+            cout<<"registration is done.....!!!";
+            cout<<"thank you for registering...!!!";
+        }
+        else
+                cout<<"\nInvalid Input\n";
+        break;
+        case 5:cout<<"\n 1.price by bus is 700\n";
+        cout<<" 2.price by train is 1000\n";
+        cout<<" 3.price by flight is 5000\n";
+        cout<<"\n Enter the choice : ";
+        cin>>c;
+        if(c==1)
+        {
+            cout<<"\nregistration done through bus\n";
+            cout<<"registration is done.....!!!!\n";
+            cout<<"thank you for registering...!!!\n";
+        }
+        else if(c==2)
+        {
+            cout<<"\nregistration done through train\n";
+            cout<<"registration is done.....!!!";
+            cout<<"thank you for registering...!!!";
+        }
+        else if(c==3)
+        {
+            cout<<"\nregistration is done through flight\n";
+            cout<<"registration is done.....!!!";
+            cout<<"thank you for registering...!!!";
+        }
+        else
+                cout<<"\nInvalid Input\n";
+        break;
+        case 6:cout<<"\n 1.price by bus is 1000\n";
+        cout<<" 2.price by train is 2000\n";
+        cout<<" 3.price by flight is 5500\n";
+        cout<<"\n Enter the choice : ";
+        cin>>c;
+        if(c==1)
+        {
+            cout<<"\nregistration done through bus\n";
+            cout<<"registration is done.....!!!!\n";
+            cout<<"thank you for registering...!!!\n";
+        }
+        else if(c==2)
+        {
+            cout<<"\nregistration done through train\n";
+            cout<<"registration is done.....!!!";
+            cout<<"thank you for registering...!!!";
+        }
+        else if(c==3)
+        {
+            cout<<"\nregistration is done through flight\n";
+            cout<<"registration is done.....!!!";
+            cout<<"thank you for registering...!!!";
+        }
+        else
+                cout<<"\nInvalid Input\n";
+        break;
+        default:cout<<"\nsorry!!no service available...!!!";
+        }
+        fout.write((char*)this,sizeof(tourist));
+        fout.close();
+        ofstream f("cno.txt",ios::out);
+        f<<noc;
+        f.close();
+        return;
+}
+void tourist::search()
+{
+    ifstream fin("file.txt",ios::in);
+    int r,flag=0;
+    cout<<"\n Enter client number to be searched : ";
+    cin>> r;
+    while(!fin.eof())
+    {
+        fin.read((char*)this,sizeof(tourist));
+        if(client_no==r)
+        {
+            cout<<"\n Coustomer details:\n";
+            cout<<"-------------------";
+            cout<<"\n\n client no : "<< client_no;
+            cout<<"\nName : "<< name;
+            cout<<"\nAddress : "<< address;
+            cout<<"\nPhone no : "<< phone;
+            cout<<"\nPlace : "<< place;
+            cout<<endl;
+            flag=1;
+            break;
+        }
+    }
+    if (flag==0)
+        cout<<"\n Sorry CLIENT no. is not found...!!";
+    cout<<endl;
+    return;
+    fin.close();
+}
+void tourist::display()
+{
+    ifstream fin("file.txt",ios::in|ios::app);
+    cout<<"\n\t\t\t\t\t\t\t List of Registrations Done\n";
+    cout<<"\n\t\t\t\t-------------------------------------------------";
+    while(fin.read((char*)this,sizeof(tourist)))
+    {
+        //fin.read((char*)this,sizeof(tourist));
+        cout<<"\n\n Client No : "<< client_no;
+        cout<<"\n Name : "<< name;
+        cout<<"\n Address : "<< address;
+        cout<<"\n Phone No : "<< phone;
+        cout<<"\n Place:"<< place;
+        cout<<endl;
+    }
+    fin.close();
+    return;
+}
+
+void tourist::modify(int r)
+{
+    long pos,flag=0;
+    fstream file("file.txt",ios::in|ios::out);
+    while(!file.eof())
+    {
+        pos=file.tellg();
+        file.read((char*)this,sizeof(tourist));
+        if(client_no==r)
+        {
+        cout<<"\n Enter new details : ";
+        cout<<"\n-------------------------";
+        cout<<"\n Name : ";
+        getchar();
+        gets(name);
+        cout<<" Address : ";
+        gets(address);
+        cout<<" Phone Number : ";
+        gets(phone);
+        cout<<endl;
+        file.seekg(pos);
+        file.write((char*)this,sizeof(tourist));
+        cout<<"\n CONGRATS!!\n Record is modified...!!\n\n";
+        flag=1;
+        break;
+        }
+    }
+    if(flag==0)
+        cout<<"\n Sorry client number not found....!!!\n\n";
+    file.close();
+    return;
+}
+void tourist::delete_rec(int r)
+{
+    int flag=0;
+    cout<<"\n\t Delete Record";
+    fstream fp;
+    fp.open("file.txt",ios::in|ios::out);
+    fstream fp2;
+    fp2.open("Temp.txt",ios::out);
+    fp.seekg(0,ios::beg);
+        while(fp.read((char*)this,sizeof(tourist)))
+    {
+        if(client_no!=r)
+            fp2.write((char*)this,sizeof(tourist));
+        else
+            flag=1;
+    }
+    fp2.close();
+    fp.close();
+    remove("file.txt");
+    rename("Temp.txt","file.txt");
+    if(flag==1)
+        cout<<"\n\n\tRecord Deleted..!!THANK YOU!!!";
+    else
+        cout<<"\n\nClient number was not found...!!!";
+    cout<<endl;
+}
+int main()
+{
+    int cno;
+    tourist t;
+    int ch;
+    for(;;)
+    {
+        cout<<"\n\n\n\n\t\tMAIN MENU\t\n";
+        cout<<"\n 1.Registration\n 2.Coustomer Record\n 3.Search Entry\n 4.Modify Entry\n 5.Delete Entry\n";
+        cout<<"\n Enter choice : ";
+        cin>>ch;
+        switch(ch)
+        {
+            case 1:t.registration();
+                break;
+            case 2:t.display();
+                break;
+            case 3:t.search();
+                break;
+            case 4:cout<<" Enter Client no. to be Modified : ";
+                    cin>>cno;
+                    t.modify(cno);
+                    break;
+            case 5:cout<<" Enter Client no. to be Deleted : ";
+                    cin>>cno;
+                    t.delete_rec(cno);
+                    break;
+                    default:cout<<"Invalid Input\n";
+                    break;
+        }
+    }
+}
